@@ -1,4 +1,7 @@
 {
   "C_Cpp.autocompleteAddParentheses": true,
-  "workbench.commandPalette.preserveInput": true
+  "workbench.commandPalette.preserveInput": true,
+  "files.associations": {
+    "iostream": "cpp"
+  }
 }
