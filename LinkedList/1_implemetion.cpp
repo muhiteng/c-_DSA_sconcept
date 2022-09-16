@@ -30,14 +30,61 @@ class LinkedList{
         }
     }
     void Inset_at_position(int val,int pos){}
-    void Display(){}
-    void Delete(int val){}
+    void Display(){
+        Node* temp=head;
+        while (temp!=NULL){
+            cout<<temp->data<<"  ";
+            temp=temp->next;
+        }
+        {
+            /* code */
+        }
+        
+    }
+    void Delete(int val){
+        if(head == NULL) return;
+     Node* prev,*temp;
+     prev = temp = head;
+     if(temp->data == val){
+         head=temp->next;
+         delete temp;
+         return;
+     }
+     // go ahead while no reach the end
+     while(temp !=NULL && temp->data != val)
+     {
+         prev=temp;
+         temp= temp->next;
+     }
+     // if temp == null there is no elements
+     if(temp == NULL)
+     return;
+     else
+     {
+         prev->next=temp->next;
+         delete temp;
+     }
+    
+    }
     
         
     
 };
 
 int main(){
+
+// delete example
+LinkedList list;
+
+list.Append(7);
+list.Append(10);
+list.Append(12);
+
+list.Display();
+
+list.Delete(10);
+
+list.Display();
 
 
 
