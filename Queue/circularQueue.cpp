@@ -2,7 +2,7 @@
 using namespace std;
 
 const int capacity=100;
-struct SimpleQueue
+struct CircularQueue
 {
     int arr[capacity];
     int front=-1;  // front or head
@@ -14,7 +14,7 @@ struct SimpleQueue
     }
 
     bool iSFull(){
-        if(rear == capacity-1) return true;
+        if((rear+1)% capacity==front) return true;
         else return 1;
     }
 
@@ -25,7 +25,7 @@ struct SimpleQueue
             
         }else
         {
-            rear++;
+            rear=(rear+1)% capacity;
         }
         arr[rear]= val;
     }
@@ -36,7 +36,7 @@ struct SimpleQueue
            front = rear = -1;
         }
         else
-        front++; 
+        front=(front+1)%capacity; 
     }
 
     int front_val(){
@@ -49,7 +49,7 @@ struct SimpleQueue
 
 int main(){
 
-  SimpleQueue q;
+  CircularQueue q;
   q.enqueue(10);
   q.enqueue(5);
   q.enqueue(8);
