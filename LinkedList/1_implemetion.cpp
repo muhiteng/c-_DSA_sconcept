@@ -29,7 +29,23 @@ class LinkedList{
             
         }
     }
-    void Inset_at_position(int val,int pos){}
+    void Inset_at_position(int val,int pos){
+        Node* newNode=new Node;
+        newNode->data=val;
+        newNode->next=NULL; // will changed if insert in middle 
+        if(pos == 0){
+            newNode->next=head;
+            head=newNode;
+            return;
+        }
+        Node* temp=head;
+        for(int i=0;i<pos-1;i++){
+            if(temp->next==NULL) break;
+            temp=temp->next;
+        }
+        newNode->next=temp->next;
+        temp->next=newNode;
+    }
     void Display(){
         Node* temp=head;
         while (temp!=NULL){
@@ -79,19 +95,13 @@ LinkedList list;
 list.Append(7);
 list.Append(10);
 list.Append(12);
-
 list.Display();
 
 list.Delete(10);
-
 list.Display();
 
-
-
-
-
-
-
+list.Inset_at_position(20,3);
+list.Display();
 
 
 //=====================================

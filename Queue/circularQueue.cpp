@@ -53,6 +53,7 @@ int main(){
   q.enqueue(10);
   q.enqueue(5);
   q.enqueue(8);
+  q.enqueue(8);
   while(! q.isEmpty()){
       cout<<q.front_val()<<endl;
       q.dequeue();
