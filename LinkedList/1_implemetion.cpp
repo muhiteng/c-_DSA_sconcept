@@ -102,7 +102,25 @@ class LinkedList{
 
         }
     }
-    
+    void Reverse(){
+        if(head==NULL) return;
+        Node* prev=NULL;
+        Node* curr=head;
+        Node* next=NULL;
+
+        while (curr !=NULL)
+        {
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+
+        head=prev;
+        
+
+
+    }
         
     
 };
@@ -124,6 +142,9 @@ list.Inset_at_position(20,3);
 list.Display();
 
  list.remove_at_pos(3);
+ list.Display();
+
+ list.Reverse();
  list.Display();
 
 
