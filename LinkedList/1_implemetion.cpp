@@ -82,6 +82,26 @@ class LinkedList{
      }
     
     }
+
+    void remove_at_pos(int pos){
+        if(head == NULL) return;
+        if(pos == 0){
+            Node* temp;
+            temp=head;
+            head=head->next;
+            delete temp;
+        }else{
+             Node* temp=head;
+        for(int i=0;i<pos-1;i++){
+            if(temp->next == NULL) return;
+            temp=temp->next;
+        }
+        Node* temp2=temp->next;
+        temp->next=temp2->next; // or temp->next=temp->next->next;
+        delete temp2;
+
+        }
+    }
     
         
     
@@ -102,6 +122,9 @@ list.Display();
 
 list.Inset_at_position(20,3);
 list.Display();
+
+ list.remove_at_pos(3);
+ list.Display();
 
 
 //=====================================
